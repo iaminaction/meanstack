@@ -1,0 +1,45 @@
+<div>
+
+    <div class="split left">
+        <div class="centered">
+
+            <mat-card style="background-color: lightgray;">
+              <mat-card-header>
+                <mat-card-title>
+                  Search : <input type="text" #search (keyup)=filter(search.value) placeholder="Filter">
+                  <input type="button" value="Add" (click)="navigateToAdd()">
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+
+<div *ngFor="let u of users">
+<div >
+
+  <mat-card [style.background-color]="checkSelected(u._id)">
+    <mat-card-header>
+      <mat-card-title>
+       <span (click)="setSelected(u)">ID :</span> {{u._id}} 
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-user [userid]="u._id" 
+      (notify2)="userDeleted($event)"></app-user>
+    </mat-card-content>
+    </mat-card>
+</div>
+</div>
+
+              </mat-card-content>
+            </mat-card>
+
+        </div>
+      </div>
+      
+      <div class="split right">
+        <div class="centered">
+          <!-- <ng-container *ngComponentOutlet="choosedComponent"></ng-container> -->
+          <app-adduser *ngIf="isCreate" (userCreated)="userCreated($event)"></app-adduser>
+          <app-tasksposts *ngIf="isPostsTasks" [user]="selectedUser"></app-tasksposts>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,38 @@
+<!-- <h3>Task & Posts {{user._id}}</h3> -->
+
+<mat-card style="background-color: lightgray;">
+    <mat-card-header>
+        <mat-card-title>Tasks - {{user._id}}</mat-card-title>
+      <div>
+          <br />
+          <button mat-flat-button color="primary" (click)="addTaskToggle()">Add</button>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+     <div *ngIf="!isAddTask">
+        <app-task  *ngFor="let t of tasks" (notify)="updateTask($event)" [task]="t"></app-task>
+     </div>
+     <div *ngIf="isAddTask">
+        <app-addtask (notify)="getNewTask($event)"></app-addtask>
+     </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="background-color: lightgray;">
+    <mat-card-header>
+        <mat-card-title>Posts - {{user._id}}</mat-card-title>
+      <div><br />
+        <button mat-flat-button color="primary" (click)="addPostToggle()">Add</button>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+     <div *ngIf="!isAddPost">
+        <app-post *ngFor="let p of posts" [post]="p"></app-post>
+     </div>
+     <div *ngIf="isAddPost">
+        <app-addpost (notify)="getNewPost($event)"></app-addpost>
+     </div>
+    </mat-card-content>
+  </mat-card>
+
+

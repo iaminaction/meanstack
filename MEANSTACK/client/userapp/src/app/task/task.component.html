@@ -1,0 +1,30 @@
+
+<mat-card style="background-color: lightgray;">
+    <mat-card-header>
+      <!-- <mat-card-title>Users List</mat-card-title><br /> -->
+
+    </mat-card-header>
+    <mat-card-content>
+        <table>
+            <tr>
+                <td>Title :</td>
+                <td><span>{{task.title}}</span></td>
+                <td></td>
+                <td><button *ngIf="!task.completed" mat-flat-button color="primary" (click)="complete()">Complete</button></td>
+            </tr>
+            <tr>
+                <td>Completed :</td>
+                <td><span>{{task.completed}}</span></td>
+                
+            </tr>
+        </table>
+    </mat-card-content>
+  </mat-card>
+
+
+
+    <!-- <button *ngIf="!task.completed" mat-flat-button color="primary" (click)="complete()">Complete</button> -->
+
+    <!-- <input *ngIf="!task.completed" type="button" value="Mark completed" (click)="complete()"> -->
+
+<br />

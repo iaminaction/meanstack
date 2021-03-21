@@ -1,0 +1,54 @@
+
+            <div style="border-style: solid" 
+            [style.border-color]="checkTasks()">
+                    <div>
+                        <form #f="ngForm" >
+                            <table>
+                                <tr>
+                                    <td>Name :</td>
+                                    <td><input required type="text" [(ngModel)]="user.name" name="name"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                        <td>Email :</td>
+                                        <td><input required type="email" [(ngModel)]="user.email" name="email" placeholder="name@example.com"></td>
+                                </tr>
+
+                                <tr *ngIf="displayFlag">
+                                    <td>Street :</td>
+                                    <td><input type="text" [(ngModel)]="user.street" name="street"></td>
+                                </tr>
+                                <tr *ngIf="displayFlag">
+                                    <td>City :</td>
+                                    <td><input type="text" [(ngModel)]="user.city" name="city"></td>
+                                </tr>
+                                <tr *ngIf="displayFlag">
+                                    <td>Zipcode :</td>
+                                    <td><input type="text" [(ngModel)]="user.zipcode" name="zipcode"></td>
+                                </tr>
+
+                                <tr>
+
+                                    <td><button mat-flat-button [disabled]="!f.valid" color="primary" (click)="saveUser()">Save</button></td>
+                                    <td><button mat-flat-button color="primary" (click)="delete()">Delete</button></td>
+                                    <td (mouseover)="displayMore()">
+                                       
+                                            <button mat-stroked-button disabled style="background-color:darkgray;">
+                                                More Data
+                                            </button> 
+                                    </td>
+                                </tr>
+                        </table>                
+                        </form>
+                        
+                        </div>
+                  <!-- </mat-card-content>
+                </mat-card> -->
+            </div>
+            <br />
+    
+    
+    
+    
+    
+        

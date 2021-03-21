@@ -1,0 +1,22 @@
+<form #f="ngForm" (ngSubmit)="save()" style="border: black; ">
+    <table>
+<tr>
+<td>Title :</td>
+<td> <input required type="text" [(ngModel)]="post.title" name="title"></td>
+</tr>
+
+<tr>
+<td>Body :</td>
+<td><input required type="text" [(ngModel)]="post.body" name="body"></td>
+</tr>
+
+<tr>
+<td><button mat-flat-button color="primary" [disabled]="!f.valid">Save</button></td>
+<td><button mat-flat-button color="warn" (click)="cancel()">Cancel</button></td>
+
+
+</tr>
+
+    </table>
+    
+</form>
